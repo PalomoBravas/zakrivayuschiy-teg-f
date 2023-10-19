@@ -1,14 +1,159 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+@keyframes jump {
+    0% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(-16px);
+    }
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+@keyframes like-sparks {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-*/
+@keyframes like-heart {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.core {
+    color: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.6s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+.main-body {
+    color: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+.sparks {
+    opacity: 0;
+}
+
+.card__icon-button:hover .core {
+    transition: opacity 0.3s;
+    transition-delay: 0.03s;
+    opacity: 1;
+}
+
+.card__icon-button:active .core {
+    color: var(--active-heart);
+    transition: color 0.3s;
+    transition-delay: 0.03s;
+    opacity: 1;
+}
+
+.card__icon-button:hover .main-body {
+    transition: opacity 0.3s;
+    transition-delay: 0.05s;
+    opacity: 1;
+}
+
+.card__icon-button:active .main-body {
+    color: var(--active-heart);
+    transition: color 0.3s;
+    transition-delay: 0.05s;
+    opacity: 1;
+}
+
+.like-icon.is-liked .main-body {
+    color: var(--active-heart);
+    transition: color 0.3s;
+    transition-delay: 0.05s;
+    opacity: 1;
+}
+
+.like-icon.is-liked .core {
+    color: var(--active-heart);
+    transition: color 0.3s;
+    transition-delay: 0.03s;
+    opacity: 1;
+}
+
+.like-icon.is-liked .contour {
+    fill: var(--active-heart);
+    transition: fill 0.3s;
+    transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .sparks {
+    fill: var(--active-heart);
+    animation: like-sparks 0.3s 0.3s ease-in;
+}
+
+.like-icon.is-liked .heart {
+    transform-origin: center;
+    animation: like-heart 0.3s 0.1s ease-in alternate;
+}
+
+.card__like-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--accent-color);
+    width: 0;
+    height: 100%;
+}
+
+.card__like-button:hover::after {
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.card__like-button:focus {
+    outline: none;
+    box-shadow: 2px 2px 0 0 var(--accent-color);
+}
+
+.card__like-button:hover .button__text {
+    color: var(--bg-color);
+    transition: color 1s ease;
+}
+
+.content__footer-button {
+    position: relative;
+}
+
+.content__footer-button:hover {
+    color: var(--bg-color);
+    transition: color 1s ease;
+}
+
+.content__footer-button:focus {
+    outline: none;
+    box-shadow: 2px 2px 0 0 var(--accent-color);
+}
+
+.content__footer-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: var(--accent-color);
+}
+
+.content__footer-button:hover::after {
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+
+
