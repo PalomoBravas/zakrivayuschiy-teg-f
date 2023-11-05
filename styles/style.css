@@ -147,7 +147,7 @@
 }
 
 @supports ((text-stroke: 1px var(--text-shadow-color)) or (-webkit-text-stroke: 1px var(--text-shadow-color))) {
-    .card__image-label {
+    .watermark {
         -webkit-text-stroke: 1px var(--text-shadow-color);
         text-stroke: 1px var(--text-shadow-color);
         text-shadow: none;
@@ -213,12 +213,16 @@
 }
 
 .card__icon-button {
+    padding: 0;
     block-size: 38px;
-    inline-size: 50px;
+    inline-size: 38px;
     background: transparent;
     cursor: pointer;
     border: 2px solid transparent;
     overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card__icon-button:focus {
@@ -246,9 +250,11 @@
     transition: box-shadow 0.3s;
 }
 
+
+
 .like-icon {
     inline-size: 40px;
-    block-size: 40px;
+    block-size: 30px;
 }
 
 .button-animation {

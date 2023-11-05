@@ -21,7 +21,7 @@
         transform: scale(1);
     }
     100% {
-        transform: scale(1.15);
+        transform: scale(1.1);
     }
 }
 
@@ -133,6 +133,11 @@
 
 .button-animation:hover::after {
     transform: scaleX(1);
+}
+
+.card__like-button:focus {
+    outline: none;
+    box-shadow: 2px 2px 0 0 var(--accent-color);
 }
 
 .content__footer-button:focus {
